@@ -1,0 +1,3 @@
+HTML reference = W3schools
+Javascript reference = W3schools
+CSS reference = W3schools
