@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/26568952/how-to-swap-text-based-on-patterns-at-once-with-sed
+https://unix.stackexchange.com/questions/268640/make-multiple-edits-with-a-single-call-to-sed#:~:text=You%20can%20tell%20sed%20to,named%20file%20%2C%20in%2Dplace.
+https://unix.stackexchange.com/questions/660170/replace-several-words-with-other-words-using-sed
+https://www.gnu.org/software/gawk/manual/html_node/Escape-Sequences.html
+https://linuxize.com/post/how-to-use-sed-to-find-and-replace-string-in-files/
+https://www.unix.com/shell-programming-and-scripting/163946-passing-value-command-line-argument-awk-script.html
+https://opensource.com/article/19/11/how-regular-expressions-awk
+https://www.digitalocean.com/community/tutorials/workflow-loop-through-files-in-a-directory
+https://unix.stackexchange.com/questions/342418/is-there-a-way-to-print-last-line-of-a-file-then-first-line-of-a-file-in-awk-onl
+https://victoria.dev/blog/batch-renaming-images-including-image-resolution-with-awk/
+

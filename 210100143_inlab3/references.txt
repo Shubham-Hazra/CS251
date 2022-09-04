@@ -1,0 +1,6 @@
+https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
+https://unix.stackexchange.com/questions/426335/using-awk-and-looping-through-files-in-a-directory
+https://www.oreilly.com/library/view/effective-awk-programming/9781491904930/ch04.html
+https://www.computerworld.com/article/2794577/processing-files-with-awk.html
+https://askubuntu.com/questions/266953/replacing-dots-in-sed
+https://stackoverflow.com/questions/6123915/search-and-replace-with-sed-when-dots-and-underscores-are-present

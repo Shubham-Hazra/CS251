@@ -1,0 +1,11 @@
+#!/bin/bash
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+fcom=$(git log main..$branch --oneline | tail -1|grep -o "[a-zA-Z0-9!@#$%^&]* [a-zA-Z0-9!@#$%^&]*$")
+if [[ "$fcom" == "Create $branch" ]]; then
+        exit 0
+else
+        exit 1
+fi
+
+

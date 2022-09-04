@@ -1,0 +1,116 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Slides},
+    pdfpagemode=FullScreen,
+    }
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title[\LaTeX{} Basics \& Advanced] 
+{\LaTeX{} Basics \& Advanced}
+
+
+\author[Shubham Hazra] 
+{Shubham Hazra}
+
+\institute[IITB] 
+{
+  IIT Bombay
+}
+
+\date[2022]
+{August 2022}
+
+\logo{\includegraphics[height=1cm]{iitb.png}}
+
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}
+    \frametitle{Introduction of myself}
+    I am Shubham Hazra, a second year undergraduate at the department of Computer Science
+    at Indian Institute of Technology Bombay. I am required to make this beamer
+    presentation and write my introduction on this slide as the part of the inlab 4 
+    assignment of CS-251, Software Systems Lab course. Till now I am really enjoying
+    this inlab as it is of practical use to me and is also relatively easier than the
+    previous labs on sed and awk or git. I thought of using Lipsum text to fill this 
+    section of slide but then just decided on writing a few lines by myself just so
+    it looks a bit different from the template output pdf and what the other 
+    people are writing. I am using TeXLive with VS Code for this instead of overleaf.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+    Note how the links here are redirecting to the corresponding page
+\end{frame}
+
+\section[Introduction]{Introduction}
+\begin{frame}
+    \frametitle{Introduction}
+    We first see the power of frames in \textbf{\LaTeX}. We dont need to write each
+    and every slide just for a new line.\pause We can just use beamer class with the
+    feature of pauses.\pause However, \textbf{\LaTeX} has another ( rather the most important
+    usage ), namely the use \alert{formatting text} in a more mathematical way.
+\end{frame}
+
+\section[Equations]{Equations}
+\begin{frame}
+    \frametitle{Equations}
+    We can write many equations, can be labelled like the following
+    \begin{equation}
+        e^{i\alpha} = cos(\alpha) + i\,sin(\alpha)
+    \end{equation}\pause
+    or the unlabelled equations like the force between two charges given by
+    \begin{equation*}
+        F = \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r^2}
+    \end{equation*}
+\end{frame}
+
+\section[Itemize and Linking]{Itemize and Linking}
+\begin{frame}
+    \frametitle{Itemize and Linking}
+    Also, \LaTeX can be used to present the items in a list format, for example,
+    some common ways of sorting an array are:
+    \begin{itemize}
+        \item Bubble sort
+        \item Insertion sort \pause, then there are the more rigorous algorithms like
+        \item QuickSort
+        \item Heap sort \pause, \textit{and then the best known algorithm}
+        \item \alert{Monkey sort} (or) Bogo-sort.
+    \end{itemize}
+    Some pointers to the last algorithm can be found at \href{https://en.wikipedia.org/wiki/Bogosort}{here}
+\end{frame}
+
+\section[Matrices]{Matrices}
+\begin{frame}
+    \frametitle{Matrices}
+    We can also write matrices in \LaTeX, for example the identity matrix of size
+    (3x3) is\\
+    \begin{center}
+        \begin{math}
+            I_3 = 
+            \begin{bmatrix}
+                1 & 0 & 0\\
+                0 & 1 & 0\\
+                0 & 0 & 1
+            \end{bmatrix} 
+        \end{math}
+    \end{center}
+    \pause
+    \alert{Bonus: try to indent like the below equation}
+    \begin{align*}
+        \mathbf{(\textbf{a} \cdot \textbf{b})}^2 &= (\sum{a_ib_i})^2\\
+        &\leq (\sum{a_i^2})(\sum{b_i^2})
+    \end{align*}
+\end{frame}
+
+\end{document}

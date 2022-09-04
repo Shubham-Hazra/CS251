@@ -1,0 +1,17 @@
+https://serverfault.com/questions/695310/grep-lines-after-match-until-the-end
+https://stackoverflow.com/questions/18166552/grep-a-print-everything-after-a-match
+https://git-scm.com/docs/git-rev-list
+https://www.git-scm.com/docs/githooks#_pre_push
+https://help.gitkraken.com/gitkraken-client/githooksexample/#git-hook-in-action
+https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e
+https://githooks.com/
+https://verdantfox.com/blog/view/how-to-use-git-pre-commit-hooks-the-hard-way-and-the-easy-way
+https://help.gitkraken.com/gitkraken-client/githooksexample/
+https://stackoverflow.com/questions/21998728/how-to-specify-a-git-commit-message-template-for-a-repository-in-a-file-at-a-rel
+https://gerrit-review.googlesource.com/Documentation/cmd-hook-commit-msg.html
+https://medium.com/@f3igao/get-started-with-git-hooks-5a489725c639
+https://www.git-tower.com/learn/git/faq/change-author-name-email
+https://www.internalpointers.com/post/split-commit-into-smaller-ones-git
+https://gist.github.com/4383/c932dcef79e2b09b8f97a76ccdeb8bd4
+https://www.deployhq.com/git/faqs/update-author-committer-multiple-git-commits
+https://gitready.com/advanced/2009/03/20/reorder-commits-with-rebase.html

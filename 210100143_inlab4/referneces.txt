@@ -1,0 +1,11 @@
+https://www.scijournal.org/articles/greater-than-symbol-in-latex#:~:text=Greater%20than%20(or%20equal)%20Symbol,no%20value%20as%20an%20argument.
+https://www.physicsread.com/latex-dots/#:~:text=In%20latex%2C%20the%20simple%20dot,use%20in%20vector%20dot%20products.&text=Also%2C%20you%20can%20take%20the,define%20the%20vector%20dot%20product.
+https://www.overleaf.com/learn/latex/Mathematical_fonts
+https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath
+https://latex-tutorial.com/matrices-in-latex/
+https://www.codegrepper.com/code-examples/whatever/center+matrix+latex
+https://www.overleaf.com/learn/latex/Hyperlinks
+https://tex.stackexchange.com/questions/61051/logo-in-the-first-page-only#:~:text=The%20command%20to%20be%20used,in%20the%20titlepage%20is%20%5Ctitlegraphic%20.
+https://tex.stackexchange.com/questions/246441/labeling-equations-and-math-mode
+https://tex.stackexchange.com/questions/66628/latex-beamer-frame-outside-sections
+
