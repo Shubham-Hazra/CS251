@@ -2,22 +2,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Inlab 3 - Q2}{4}{section.2}%
+\contentsline {section}{\numberline {2}Inlab 3 - Q2}{5}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Problem Statement}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Problem Statement}{5}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Algorithm}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Algorithm}{6}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Code}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Code}{7}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Results}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Results}{8}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Outlab 3 - Q4}{5}{section.3}%
+\contentsline {section}{\numberline {3}Outlab 3 - Q4}{9}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Problem Statement}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Problem Statement}{9}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Algorithm}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Algorithm}{10}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Code}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Code}{11}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Results}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Results}{14}{subsection.3.4}%

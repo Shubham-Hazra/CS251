@@ -4,8 +4,13 @@
 \usepackage[]{amsmath}
 \usepackage[]{amssymb}
 \usepackage[]{xcolor}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm2e,caption}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
+\RestyleAlgo{ruled}
+\usepackage{multirow}
 \usepackage[labelformat=empty]{caption}
 \usepackage[
 backend=biber,
@@ -24,6 +29,33 @@ sorting=ynt
     }
 
 \urlstyle{same}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
 
 \title{\textbf{Software Systems Lab: OutLab \\ \LaTeX{}}}
 \author{Name: Shubham Hazra\\Roll no: 210100143}
@@ -94,6 +126,54 @@ sorting=ynt
 \end{minipage}
 }
 \newpage
+\setlength{\arrayrulewidth}{0.5mm}
+\begin{center}
+    \begin{table}
+        \label{sedvsawk}
+        \caption{\label{tab:sedvsawk}SED vs AWK}
+        \begin{tabular}{|c|c|}
+            \hline
+            \\ & \\
+            SED & AWK
+            \\ & \\
+            \hline
+            A command line utility & A command line utility\\
+            that parses and transforms text, & designed for text processing \\
+            using a simple,compact  & that allows writing effective \\
+            programming language & programs in the form of statements \\
+            \hline
+            Less powerful & More powerful and robust\\
+            \hline
+            Simple and limited & Complex and versatile\\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{center}
+\vspace*{1em}
+In this lab I was required to write sed commands and awk scripts on bash for the 
+various inlab and outlab problems. There were 3 inlab problems and 5 outlab problems.
+However I am only going to cover one problem from the inlab and one from the outlab 
+in this report.\\
+The following are the methods I used to solve the problems:\\
+\begin{itemize}
+    \item InLab
+    \begin{enumerate}
+        \item Q1\_a :- awk
+        \item Q1\_b :- awk
+        \item Q2    :- awk
+        \item Q3    :- sed
+    \end{enumerate}
+    \item OutLab
+    \begin{enumerate}
+        \item Q1 :- sed
+        \item Q2 :- sed
+        \item Q3 :- awk
+        \item Q4 :- awk
+        \item Q5 :- awk and sed
+    \end{enumerate}
+\end{itemize}
+
+\newpage
 
 \section{Inlab 3 - Q2}
 
@@ -111,10 +191,57 @@ For digits greater than 9, lowercase alphabets will be used.
     \includegraphics[width=\textwidth]{inlab3_sample_output.png}
     \caption[]{Sample Output}
 \end{figure*}
+\newpage
 
 \subsection{Algorithm}
+\begin{algorithm*}
+    \label{Q2}
+    \caption{InLab - Q2}\label{alg:Q2}
+    $i\gets 10$\;
+    \eIf{$i\geq 5$}
+    {
+        $i\gets i-1$\;
+    }{
+        \If{$i\leq 3$}
+        {
+            $i\gets i+2$\;
+        }
+    }
+\end{algorithm*}
+\newpage
 
 \subsection{Code}
+\begin{lstlisting}[language=bash, caption=InLab - Q2]
+    #!/bin/bash
+
+    awk '
+    {
+        num_digits=NF;
+        for(i=1;i<=NF;i++)
+        {
+            if($i=="a")
+            {digits[i-1]=10}
+            else if($i=="b")
+                    {digits[i-1]=11}
+            else if($i=="c")
+                    {digits[i-1]=12}
+            else {digits[i-1]=$i}
+        }
+        base=8+2*(NR%3)
+        sum=0;
+        for(i=0;i<num_digits;i++)
+        {
+            mult=1;
+            for(j=0; j<num_digits-i-1; j++)
+            {
+                mult=mult*base;
+            }
+            sum=sum+digits[i]*mult;
+        }
+        print sum
+    }' $1
+\end{lstlisting}
+\newpage
 
 \subsection{Results}
 \newpage
@@ -153,9 +280,122 @@ Each line should contain only one result.\\\\
 Write the bash script q4.sh that takes two text files, one containing input and 
 other to write the output. 
 Make use of \textbf{awk} (mandatory!) to solve the task.
+\newpage
+
 \subsection{Algorithm}
+\begin{algorithm*}
+    \label{Q4}
+    \caption{OutLab - Q4}\label{alg:Q4}
+    $i\gets 10$\;
+    \eIf{$i\geq 5$}
+    {
+        $i\gets i-1$\;
+    }{
+        \If{$i\leq 3$}
+        {
+            $i\gets i+2$\;
+        }
+    }
+\end{algorithm*}
+\newpage
 
 \subsection{Code}
+\begin{lstlisting}[language=bash, caption=OutLab - Q4]
+    #!/bin/bash
+
+    awk '{
+        if(NR==1)
+        {
+            testcases=$1
+        }
+        if(NR%3==2)
+        {	
+            input_base=$1;
+            output_base=$2;
+        }
+        if(NR%3==0)
+        {
+            num_digits1=NF;
+            for(i=1;i<=NF;i++)
+            {
+                if($i>=0 && $i<=9)
+                {digits1[i-1]=$i}
+                else if($i=="a")
+                {digits1[i-1]=10}
+                else if($i=="b")
+                {digits1[i-1]=11}
+                else if($i=="c")
+                {digits1[i-1]=12}
+                else if($i=="d")
+                {digits1[i-1]=13}
+                else if($i=="e")
+                {digits1[i-1]=14}
+                else if($i=="f")
+                {digits1[i-1]=15}
+                else
+                {digits1[i-1]=$i}    
+            }
+            num1=0;
+            for(i=0;i<num_digits1;i++)
+            {
+                mult=1;
+                for(j=0; j<num_digits1-i-1; j++){
+                mult=mult*input_base;
+                }
+                num1=num1+digits1[i]*mult;
+            }
+            }
+            if(NR%3==1 && NR!=1)
+            {
+                num_digits2=NF;
+                for(i=1;i<=NF;i++)
+                {
+                    if($i>=0 && $i<=9)
+                    {digits2[i-1]=$i}
+                    else if($i=="a")
+                    {digits2[i-1]=10}
+                    else if($i=="b")
+                    {digits2[i-1]=11}
+                    else if($i=="c")
+                    {digits2[i-1]=12}
+                    else if($i=="d")
+                    {digits2[i-1]=13}
+                    else if($i=="e")
+                    {digits2[i-1]=14}
+                    else if($i=="f")
+                    {digits2[i-1]=15}
+                    else
+                    {digits2[i-1]=$i}
+                }
+                num2=0;
+                for(i=0;i<num_digits2;i++)
+                {
+                    mult=1;
+                    for(j=0; j<num_digits2-i-1; j++){
+                    mult=mult*input_base;
+                    }
+                    num2=num2+digits2[i]*mult;
+                }
+                sum = num1+num2;
+                num_digits=0
+                i=0
+                while(sum>0)
+                {	
+                    digits[i]=int(sum%output_base)
+                    sum=int(sum/output_base)
+                    num_digits++
+                    i++
+                }
+                for(i=num_digits-1;i>=0;i--)
+                {
+                    printf "%d ",digits[i]
+                    
+                }
+                printf "\n" 
+            }
+    }' $1 > $2
+\end{lstlisting}
+\newpage
 
 \subsection{Results}
 \newpage
