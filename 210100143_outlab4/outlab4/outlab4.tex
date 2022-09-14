@@ -3,22 +3,20 @@
 \usepackage[]{geometry}
 \usepackage[]{amsmath}
 \usepackage[]{amssymb}
-\usepackage[]{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{listings}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}}
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{10pt}
 \usepackage{algpseudocode}
 \usepackage{algorithm2e,caption}
+\usepackage[nottoc,numbib]{tocbibind}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \RestyleAlgo{ruled}
 \usepackage{multirow}
 \usepackage[labelformat=empty]{caption}
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{mybibliography.bib}
-\usepackage{blindtext}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -29,7 +27,14 @@ sorting=ynt
     }
 
 \urlstyle{same}
-
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,250mm},
+ left=20mm,
+ top=20mm,
+ }
+\SetKwComment{Comment}{/* }{ */}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -65,15 +70,28 @@ sorting=ynt
 
 \begin{document}
 
-\maketitle
+\vspace*{20em}
+\begin{center}
+    \huge 
+    \textbf{Software Systems Lab: OutLab}\\
+    \vspace*{1em}
+    \textbf{\LaTeX{}}\\
+    \large
+    \vspace*{1em}
+    Name: Shubham Hazra\\
+    Roll no: 210100143\\
+    \vspace*{1em}
+    \LARGE
+    August 30, 2022
+\end{center}
+
 \newpage
 
 \tableofcontents
 \newpage
 
-%\addcontentsline{toc}{section}{Introduction}
 \section{Introduction}
-\vspace*{2em}
+\vspace*{4em}
 \begin{center}
     {\Large{\textbf{SED}}}
 \end{center}
@@ -97,9 +115,9 @@ sorting=ynt
     To delete k lines of a file:\\
     \emph{sed 'kd' filename}\\
     For inplace substitutions:\\
-    \emph{sed -i 's/pattern1/pattern2/' filename}
+    \emph{sed -i 's/pattern1/pattern2/' filename} \cite{geeksforgeeks1}
 \end{minipage}
-}\\
+}\\\\\\\\
 \begin{center}
     {\Large{\textbf{AWK}}}
 \end{center}
@@ -122,7 +140,7 @@ sorting=ynt
     \emph{awk 'BEGIN\{\} \{\} END\{\}' filename}\\
     For example:\\
     To print contents of a file:\\
-    \emph{awk '\{print\}' filename}
+    \emph{awk '\{print\}' filename} \cite{geeksforgeeks}
 \end{minipage}
 }
 \newpage
@@ -130,19 +148,18 @@ sorting=ynt
 \begin{center}
     \begin{table}
         \label{sedvsawk}
-        \caption{\label{tab:sedvsawk}SED vs AWK}
-        \begin{tabular}{|c|c|}
+        \caption{\label{tab:sedvsawk}\textbf{\Large{SED vs AWK}}}
+        \renewcommand{\arraystretch}{4}
+        \rowcolors{1}{green!80!yellow!50}{green!70!yellow!40}
+        \begin{tabular}{|P{0.45\textwidth}|P{0.45\textwidth}|}
             \hline
-            \\ & \\
-            SED & AWK
-            \\ & \\
+            \textbf{SED} & \textbf{AWK}
+            \\ \hline
+            A command line utility that parses and transforms text, using a simple
+            , compact programming language & A command line utility designed for text
+            processing that allows effective programs in the form of statements\\ 
             \hline
-            A command line utility & A command line utility\\
-            that parses and transforms text, & designed for text processing \\
-            using a simple,compact  & that allows writing effective \\
-            programming language & programs in the form of statements \\
-            \hline
-            Less powerful & More powerful and robust\\
+            Less powerful & More powerful and robust\\ 
             \hline
             Simple and limited & Complex and versatile\\
             \hline
@@ -182,11 +199,11 @@ Create a function which takes in input a set of numbers from a text file
 in base 8+2*(line\_number\%3) 
 and returns the same number in base 10. 
 Note that the digits will be space separated on each line. 
-For digits greater than 9, lowercase alphabets will be used.
+For digits greater than 9, lowercase alphabets will be used.\\\\\\\\\\
 \begin{figure*}[h]
     \includegraphics[width=\textwidth]{inlab3_sample_input.png}
     \caption[]{Sample Input}
-\end{figure*}
+\end{figure*}\\\\\\\\
 \begin{figure*}[h]
     \includegraphics[width=\textwidth]{inlab3_sample_output.png}
     \caption[]{Sample Output}
@@ -194,23 +211,34 @@ For digits greater than 9, lowercase alphabets will be used.
 \newpage
 
 \subsection{Algorithm}
+\vspace*{2em}
+The algorithm that my code follows is:\\\\
 \begin{algorithm*}
     \label{Q2}
     \caption{InLab - Q2}\label{alg:Q2}
-    $i\gets 10$\;
-    \eIf{$i\geq 5$}
+    \While{read line}
     {
-        $i\gets i-1$\;
-    }{
-        \If{$i\leq 3$}
+        $num\_digits \gets \textrm{number of fields(NF)}$\;
+        \For{$i \gets 1 \textrm{ to } num\_digits$}
         {
-            $i\gets i+2$\;
+            $digits[i-1] \gets \$i\textrm{(Value of that field)}$\;
+            \Comment{digits gets 10 if value is a, 11 for b and 12 for c} 
         }
-    }
+        $base \gets 8 + 2\cdot\textrm{NR(Number of row)\%}3$\;
+        $sum \gets 0$\;
+        \For{$i \gets 0 \textrm{ to } num\_digits-1$}
+        {
+            $sum \gets sum + digits[i]\cdot base^{(num\_digits-i-1)}$\;
+        }
+        print $sum$\;
+    } 
 \end{algorithm*}
 \newpage
 
 \subsection{Code}
+\vspace*{2em}
+The code that I wrote is:\\\\
+References from : \cite{oreilly} \cite{unix} \cite{computerworld}\\\\
 \begin{lstlisting}[language=bash, caption=InLab - Q2]
     #!/bin/bash
 
@@ -239,11 +267,27 @@ For digits greater than 9, lowercase alphabets will be used.
             sum=sum+digits[i]*mult;
         }
         print sum
-    }' $1
+    }' $1 
 \end{lstlisting}
 \newpage
 
 \subsection{Results}
+\vspace*{1em}
+The \textbf{input}, the \textbf{command} I ran and the \textbf{output} I got are:\\\\
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q2_input.jpeg}
+    \caption[]{Input}
+\end{figure*}
+\vspace*{1em}
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q2_command.jpeg}
+    \caption[]{Command}
+\end{figure*}
+\vspace*{1em}
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q2_output.jpeg}
+    \caption[]{Output}
+\end{figure*}
 \newpage
 
 \section{Outlab 3 - Q4}
@@ -280,26 +324,80 @@ Each line should contain only one result.\\\\
 Write the bash script q4.sh that takes two text files, one containing input and 
 other to write the output. 
 Make use of \textbf{awk} (mandatory!) to solve the task.
-\newpage
-
+\\\\\\\\\\\\
 \subsection{Algorithm}
+The following algorithm was written by using the algorithm2e package which is able 
+to make the most good looking algorithms, however this package does not allow page
+breaks and the following algorithm is too big to fit in one page with the section
+heading so I removed the page break from the above section and added this algorithm 
+section to the same page so the algorithm is able to render fully in the page below.\\
+\\\\\\\\
+The algorithm that my code follows is:\\\\
 \begin{algorithm*}
     \label{Q4}
     \caption{OutLab - Q4}\label{alg:Q4}
-    $i\gets 10$\;
-    \eIf{$i\geq 5$}
+    \While{read line}
     {
-        $i\gets i-1$\;
-    }{
-        \If{$i\leq 3$}
+        \If{NR==1}
         {
-            $i\gets i+2$\;
+            testcases=\$1\;
         }
-    }
+        \If{NR\%3==2}
+        {
+            input\_base=\$1\;
+			output\_base=\$2\;
+        }
+        \If{NR\%3==0}
+        {
+            num\_digits1=NF\;
+            \For{$i \gets 1 \textrm{ to } num\_digits1$}
+            {
+                $digits1[i] \gets \$i\textrm{(Value of that field)}$\;
+                \Comment{digits gets 10 if value is a, 11 for b and so on till 15 for f} 
+            }
+            $num1 \gets 0$\;
+            \For{$i \gets 0 \textrm{ to } num\_digits1-1$}
+            {
+                $num1 \gets num1 + digits[i]\cdot input\_base^{(num\_digits1-i-1)}$\;
+            }
+        }
+        \If{NR\%3==0 and NR!=1}
+        {
+            num\_digits2=NF\;
+            \For{$i \gets 1 \textrm{ to } num\_digits2$}
+            {
+                $digits2[i] \gets \$i\textrm{(Value of that field)}$\;
+                \Comment{digits gets 10 if value is a, 11 for b and so on till 15 for f} 
+            }
+            $num2 \gets 0$\;
+            \For{$i \gets 0 \textrm{ to } num\_digits2-1$}
+            {
+                $num2 \gets num2 + digits[i]\cdot input\_base^{(num\_digits2-i-1)}$\;
+            }
+            $sum \gets num1 + num2$\;
+            num\_digits=0\;
+            i=0\;
+			\While{$sum > 0$}
+			{	
+				digits[i]=int(sum\%output\_base)\;
+				sum=int(sum/output\_base)\;
+				num\_digits++\;
+				i++\;
+			}
+            \For{$i \gets num\_digits-1 \textrm{ to } 0$}
+            {
+                print digits[i]
+            }
+            print new line
+        }
+
+    } 
 \end{algorithm*}
 \newpage
 
 \subsection{Code}
+The code that I wrote is:\\
+References from : \cite{oreilly} \cite{unix} \cite{computerworld} \cite{unix-stackexchange}
 \begin{lstlisting}[language=bash, caption=OutLab - Q4]
     #!/bin/bash
 
@@ -393,14 +491,31 @@ Make use of \textbf{awk} (mandatory!) to solve the task.
                 }
                 printf "\n" 
             }
-    }' $1 > $2
+    }' $1 > $2 
 \end{lstlisting}
 \newpage
 
 \subsection{Results}
+\vspace*{1em}
+The \textbf{input}, the \textbf{command} I ran and the \textbf{output} I got are:\\\\
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q4_input.jpeg}
+    \caption[]{Input}
+\end{figure*}
+\vspace*{2em}
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q4_command.jpeg}
+    \caption[]{Command}
+\end{figure*}
+\vspace*{2em}
+\begin{figure*}[h]
+    \includegraphics[width=\textwidth]{Q4_output.jpeg}
+    \caption[]{Output}
+\end{figure*}
 \newpage
 
-\printbibliography
+\bibliographystyle{plain}
+\bibliography{mybibliography} 
 
 
 \end{document}
