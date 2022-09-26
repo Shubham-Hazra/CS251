@@ -1,0 +1,24 @@
+\hypertarget{DSA_8cpp}{}\doxysection{D\+S\+A.\+cpp File Reference}
+\label{DSA_8cpp}\index{DSA.cpp@{DSA.cpp}}
+
+
+This file contains 4 different types of data structures.  
+
+
+{\ttfamily \#include \char`\"{}D\+S\+A.\+h\char`\"{}}\newline
+Include dependency graph for D\+S\+A.\+cpp\+:
+% FIG 0
+
+
+\doxysubsection{Detailed Description}
+This file contains 4 different types of data structures. 
+
+This file contains 4 different types of data structures. Namely Singly Linked lists, Doubly Linkd Lists, Binary search trees and Suffix tries. It contains their constructors and few of their member functions. Also some overloaded operators are also given. \begin{DoxyAuthor}{Author}
+Shubham Hazra 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21 September 2022 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}

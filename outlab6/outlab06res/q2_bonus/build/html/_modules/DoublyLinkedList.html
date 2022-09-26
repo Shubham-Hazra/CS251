@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DoublyLinkedList &mdash; outlabq2  documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> outlabq2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">q2_bonus</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">outlabq2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      <li>DoublyLinkedList</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for DoublyLinkedList</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">DoublyLinkedListNode</span> <span class="k">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="DoublyLinkedList"><a class="viewcode-back" href="../DoublyLinkedList.html#DoublyLinkedList.DoublyLinkedList">[docs]</a><span class="k">class</span> <span class="nc">DoublyLinkedList</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This is a simple implementation of a singly linked list</span>
+
+<span class="sd">    :param head: This is the pointer to the head of the linked list, defaults to None</span>
+<span class="sd">    :type head: DoublyLinkedListNode, defaults to None </span>
+
+<span class="sd">    :param tail: This is the pointer to the tail of the linked list</span>
+<span class="sd">    :type tail: DoublyLinkedListNode, defaults to None </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="DoublyLinkedList.__init__"><a class="viewcode-back" href="../DoublyLinkedList.html#DoublyLinkedList.DoublyLinkedList.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor method</span>
+
+<span class="sd">        &gt;&gt;&gt; L = DoublyLinkedList()</span>
+<span class="sd">        &gt;&gt;&gt; L.printer()</span>
+<span class="sd">        []</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="kc">None</span></div>
+    
+<div class="viewcode-block" id="DoublyLinkedList.insert"><a class="viewcode-back" href="../DoublyLinkedList.html#DoublyLinkedList.DoublyLinkedList.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to insert a new node into the linked list</span>
+
+<span class="sd">        :param data: Data to be inserted</span>
+<span class="sd">        :type data: int</span>
+
+<span class="sd">        &gt;&gt;&gt; L = DoublyLinkedList()</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(40)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(4)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(44)</span>
+<span class="sd">        &gt;&gt;&gt; L.printer()</span>
+<span class="sd">        [40, 4, 44]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">DoublyLinkedListNode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># new node</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">:</span> <span class="c1"># no head</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span> <span class="c1"># add behind tail</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">node</span> <span class="c1"># move tail</span></div>
+    
+<div class="viewcode-block" id="DoublyLinkedList.printer"><a class="viewcode-back" href="../DoublyLinkedList.html#DoublyLinkedList.DoublyLinkedList.printer">[docs]</a>    <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to print the linked list</span>
+
+<span class="sd">        :param sep: The separator to put in between two values of the linked list, defaults to &#39;, &#39;</span>
+<span class="sd">        :type sep: str, optional</span>
+
+<span class="sd">        &gt;&gt;&gt; L = DoublyLinkedList()</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(12)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(1)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(23)</span>
+<span class="sd">        &gt;&gt;&gt; L.printer()</span>
+<span class="sd">        [12, 1, 23]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">ptr</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">ptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">if</span> <span class="n">ptr</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="DoublyLinkedList.reverse"><a class="viewcode-back" href="../DoublyLinkedList.html#DoublyLinkedList.DoublyLinkedList.reverse">[docs]</a>    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to reverse the order of elements in the list</span>
+
+<span class="sd">        &gt;&gt;&gt; L = DoublyLinkedList()</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(12)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(1)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(23)</span>
+<span class="sd">        &gt;&gt;&gt; L.insert(44)</span>
+<span class="sd">        &gt;&gt;&gt; L.reverse()</span>
+<span class="sd">        &gt;&gt;&gt; L.printer()</span>
+<span class="sd">        [44, 23, 1, 12]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="c1"># head pointer</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># previous pointer</span>
+        <span class="k">while</span> <span class="n">head</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># new node left</span>
+            <span class="n">newHead</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="c1"># save pointer to next node (cut forward link)</span>
+            <span class="k">if</span> <span class="n">newHead</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># check if next node has a reverse link</span>
+                <span class="n">newHead</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">head</span> <span class="c1"># save pointer to previous node (cut reverse link)</span>
+            <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">prev</span> <span class="c1"># reverse the forward link</span>
+            <span class="n">head</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">newHead</span> <span class="c1"># reverse the reverse link</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">head</span> <span class="c1"># move pointer to previous element</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">newHead</span> <span class="c1"># use saved pointer to move head</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">prev</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, 210100143.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

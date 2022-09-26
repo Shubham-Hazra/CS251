@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trie &mdash; outlabq2  documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> outlabq2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">q2_bonus</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">outlabq2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      <li>Trie</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Trie</h1><div class="highlight"><pre>
+<span></span><span class="c1"># --------------------------------- Suffix Trie --------------------------------</span>
+
+<div class="viewcode-block" id="Trie"><a class="viewcode-back" href="../Trie.html#Trie.Trie">[docs]</a><span class="k">class</span> <span class="nc">Trie</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Impelementation of a trie</span>
+
+<span class="sd">    :param T: Dictionary containg the prefixes</span>
+<span class="sd">    :type T: Dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Trie.__init__"><a class="viewcode-back" href="../Trie.html#Trie.Trie.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor method</span>
+
+<span class="sd">        &gt;&gt;&gt; t = Trie()</span>
+<span class="sd">        &gt;&gt;&gt; print(t.T)</span>
+<span class="sd">        {}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="p">{}</span></div>
+    
+<div class="viewcode-block" id="Trie.find"><a class="viewcode-back" href="../Trie.html#Trie.Trie.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to check if a character is present in the Trie</span>
+
+<span class="sd">        :param root: The node to search for in </span>
+<span class="sd">        :type root: Dictionary</span>
+<span class="sd">        :param c: The character to search for</span>
+<span class="sd">        :type c: str</span>
+<span class="sd">        :return: True if the character is found in the trie</span>
+<span class="sd">        :rtype: Bool</span>
+
+<span class="sd">        &gt;&gt;&gt; t = Trie()</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALL&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALLADS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATACOMBS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATASTROPHE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BANTER&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.find(t.T,&quot;B&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.find(t.T,&quot;C&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.find(t.T,&quot;D&quot;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;APPLE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.find(t.T,&quot;A&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.find((t.T)[&quot;A&quot;],&quot;P&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="n">root</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Trie.insert"><a class="viewcode-back" href="../Trie.html#Trie.Trie.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to insert a string into the trie</span>
+
+<span class="sd">        :param s: The string to insert</span>
+<span class="sd">        :type s: str</span>
+
+<span class="sd">        &gt;&gt;&gt; t = Trie()</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALL&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALLADS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATACOMBS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATASTROPHE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BANTER&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+                <span class="n">root</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">root</span><span class="p">[</span><span class="s1">&#39;#&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></div>
+    
+<div class="viewcode-block" id="Trie.checkPrefix"><a class="viewcode-back" href="../Trie.html#Trie.Trie.checkPrefix">[docs]</a>    <span class="k">def</span> <span class="nf">checkPrefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to check is a prefix is preset or not</span>
+
+<span class="sd">        :param s: The prefix to search for</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :return: True if the prefix is found else False</span>
+<span class="sd">        :rtype: Bool</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; t = Trie()</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALL&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALLADS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATACOMBS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATASTROPHE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BANTER&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;APPLE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BA&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BAL&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BALL&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BALLS&quot;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BALLADS&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;BAT&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;CAT&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;CA&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;APP&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; t.checkPrefix(&quot;CE&quot;)</span>
+<span class="sd">        False</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>    
+                    <span class="n">root</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">root</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">elif</span> <span class="n">root</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span> <span class="ow">or</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+    
+<div class="viewcode-block" id="Trie.countPrefix"><a class="viewcode-back" href="../Trie.html#Trie.Trie.countPrefix">[docs]</a>    <span class="k">def</span> <span class="nf">countPrefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Object method to count the number of strings in th trie which have the given string as prefix</span>
+
+<span class="sd">        :param s: The prefix to count for</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :return: The count of strings which have the given prefix</span>
+<span class="sd">        :rtype: int</span>
+
+<span class="sd">        &gt;&gt;&gt; t = Trie()</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BAT&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALL&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BALLADS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATACOMBS&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;CATASTROPHE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;BANTER&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.insert(&quot;APPLE&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;C&quot;)</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;B&quot;)</span>
+<span class="sd">        4</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;CA&quot;)</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;CAT&quot;)</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;CATA&quot;)</span>
+<span class="sd">        2</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;A&quot;)</span>
+<span class="sd">        1</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;BALL&quot;)</span>
+<span class="sd">        2</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;C&quot;)</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;K&quot;)</span>
+<span class="sd">        0</span>
+<span class="sd">        &gt;&gt;&gt; t.countPrefix(&quot;KB&quot;)</span>
+<span class="sd">        0</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;#&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="mi">0</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, 210100143.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

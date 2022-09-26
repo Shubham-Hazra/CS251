@@ -1,0 +1,1183 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DSA module &#8212; outlabq2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="q2" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-DSA">
+<span id="dsa-module"></span><h1>DSA module<a class="headerlink" href="#module-DSA" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="DSA.BSTNode">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">BSTNode</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BSTNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BSTNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a node in the implementation of a Binary search tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>info</strong> (<em>int</em>) – The data to be stored in the node</li>
+<li><strong>left</strong> (<a class="reference internal" href="#DSA.BSTNode" title="DSA.BSTNode"><em>BSTNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the left child of the node, defaults to None</li>
+<li><strong>right</strong> (<a class="reference internal" href="#DSA.BSTNode" title="DSA.BSTNode"><em>BSTNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the right child of the node, defaults to None</li>
+<li><strong>level</strong> (<em>int</em>) – This keeps track of the level at which the node is present</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object methods:</p>
+<ul class="simple">
+<li>__init__(self, info)</li>
+<li>__str__(self)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.BSTNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BSTNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BSTNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>info</strong> (<em>int</em>) – The data to be stored in the node</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">BSTNode</span><span class="p">(</span><span class="mi">76</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">76</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.BSTNode.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BSTNode.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BSTNode.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convertor method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The value in the node as a string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">BSTNode</span><span class="p">(</span><span class="mi">76</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">76</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">&#39;76&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.BinarySearchTree">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">BinarySearchTree</code><a class="reference internal" href="_modules/DSA.html#BinarySearchTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BinarySearchTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implementation of a Binary Search Tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> (<a class="reference internal" href="#DSA.BSTNode" title="DSA.BSTNode"><em>BSTNode</em></a>) – This is a pointer to the root node, defaults to None</td>
+</tr>
+</tbody>
+</table>
+<p>Object methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>insert(self, val)</li>
+<li>traverse(self, order)</li>
+<li>height(self, root)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.BinarySearchTree.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BinarySearchTree.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BinarySearchTree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;IN&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;PRE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.BinarySearchTree.height">
+<code class="descname">height</code><span class="sig-paren">(</span><em>root</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BinarySearchTree.height"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BinarySearchTree.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to get the height of the tree below a certain node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> (<a class="reference internal" href="#DSA.DoublyLinkedListNode" title="DSA.DoublyLinkedListNode"><em>DoublyLinkedListNode</em></a>) – The node from which to find the height</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The height below  that node</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;IN&quot;</span><span class="p">)</span>
+<span class="go">18 34 43 69 78 </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">height</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.BinarySearchTree.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BinarySearchTree.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BinarySearchTree.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to insert a new node into the tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<em>int</em>) – The value to be inserted into the tree</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;IN&quot;</span><span class="p">)</span>
+<span class="go">18 34 43 69 78 </span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.BinarySearchTree.traverse">
+<code class="descname">traverse</code><span class="sig-paren">(</span><em>order</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#BinarySearchTree.traverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.BinarySearchTree.traverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to traverse the tree in the order given and printing the elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order</strong> (<em>str</em>) – The order in which to traverse the tree. Can be “PRE” for preorder, “POST” for postorder or “IN” for inorder.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;IN&quot;</span><span class="p">)</span>
+<span class="go">18 34 43 69 78 </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;PRE&quot;</span><span class="p">)</span>
+<span class="go">43 34 18 78 69 </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">)</span>
+<span class="go">18 34 69 78 43 </span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.DoublyLinkedList">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">DoublyLinkedList</code><a class="reference internal" href="_modules/DSA.html#DoublyLinkedList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a simple implementation of a singly linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>head</strong> (<a class="reference internal" href="#DSA.DoublyLinkedListNode" title="DSA.DoublyLinkedListNode"><em>DoublyLinkedListNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the head of the linked list, defaults to None</li>
+<li><strong>tail</strong> (<a class="reference internal" href="#DSA.DoublyLinkedListNode" title="DSA.DoublyLinkedListNode"><em>DoublyLinkedListNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the tail of the linked list</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object Methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>insert(self, data)</li>
+<li>printer(self, sep = ‘, ‘)</li>
+<li>reverse(self)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.DoublyLinkedList.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedList.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedList.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.DoublyLinkedList.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedList.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to insert a new node into the linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>int</em>) – Data to be inserted</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[40, 4, 44]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.DoublyLinkedList.printer">
+<code class="descname">printer</code><span class="sig-paren">(</span><em>sep='</em>, <em>'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedList.printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedList.printer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to print the linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sep</strong> (<em>str</em><em>, </em><em>optional</em>) – The separator to put in between two values of the linked list, defaults to ‘, ‘</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[12, 1, 23]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.DoublyLinkedList.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedList.reverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedList.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to reverse the order of elements in the list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[44, 23, 1, 12]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.DoublyLinkedListNode">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">DoublyLinkedListNode</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedListNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedListNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a node in the implementation of a doubly linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>int</em>) – The data to be stored in the node</li>
+<li><strong>next</strong> (<a class="reference internal" href="#DSA.DoublyLinkedListNode" title="DSA.DoublyLinkedListNode"><em>DoublyLinkedListNode</em></a>) – The pointer to the next node, defaults to None</li>
+<li><strong>prev</strong> (<a class="reference internal" href="#DSA.DoublyLinkedListNode" title="DSA.DoublyLinkedListNode"><em>DoublyLinkedListNode</em></a>) – The pointer to the previous node, defaults to None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object Methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>__str__(str)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.DoublyLinkedListNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedListNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedListNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>int</em>) – The data to be stored in the node</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedListNode</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedListNode</span><span class="p">(</span><span class="mi">82</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">82</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.DoublyLinkedListNode.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#DoublyLinkedListNode.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.DoublyLinkedListNode.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convertor method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The value of the data stored in the node as a string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">DoublyLinkedListNode</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">&#39;23&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.Heap">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">Heap</code><span class="sig-paren">(</span><em>cap</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is the implementation of the data structure of a heap. A heap data structure has
+a structural property and a heap property. The structural property states that only the
+last level of the heap may be incomplete and all the nodes must be flushed towards the left i.e.
+the new nodes must always be added in the left most free space.
+The heap property states that the parent must be smaller than both its children.</p>
+<p>Object methods:</p>
+<ul class="simple">
+<li>__init__(self, cap)</li>
+<li>parent(self, i)</li>
+<li>left(self, i)</li>
+<li>right(self, i)</li>
+<li>insert(self, val)</li>
+<li>min(self)</li>
+<li>Heapify(self, root)</li>
+<li>deleteMin(self)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.Heap.Heapify">
+<code class="descname">Heapify</code><span class="sig-paren">(</span><em>root</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.Heapify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.Heapify" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is to make it into a heap when both the left and right subheaps satisfy the heap property but not the whole heap.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> (<em>int</em>) – The element from which to start the heapify</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">deleteMin</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>cap</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This the constructor for the heap class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cap</strong> (<em>int</em>) – This is the maximum number of elements in the heap</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.deleteMin">
+<code class="descname">deleteMin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.deleteMin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.deleteMin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is to delete the minimum element i.e. delete the first element.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">deleteMin</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">deleteMin</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>This inserts a new element with the value as val into the heap as long as it does not exceed the heap capacity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<em>int</em>) – This is the value of the new element</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.left">
+<code class="descname">left</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.left" title="Permalink to this definition">¶</a></dt>
+<dd><p>This returns the left child of an element with index i</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i</strong> (<em>int</em>) – This is the index of the element whose parent we need</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the index of the left child</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">0</span><span class="p">)])</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.min">
+<code class="descname">min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.min"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>This returns the minimum value in the heap i.e. the first element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the minimum element</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.parent">
+<code class="descname">parent</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This returns the parent of an element with index i</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i</strong> (<em>int</em>) – This is the index of the element whose parent we need</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the index of the parent</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Heap.right">
+<code class="descname">right</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Heap.right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Heap.right" title="Permalink to this definition">¶</a></dt>
+<dd><p>This returns the right child of an element with index i</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i</strong> (<em>int</em>) – This is the index of the element whose parent we need</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the index of the right child</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">0</span><span class="p">)])</span>
+<span class="go">17</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">H</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.SinglyLinkedList">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">SinglyLinkedList</code><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a simple implementation of a singly linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>head</strong> (<a class="reference internal" href="#DSA.SinglyLinkedListNode" title="DSA.SinglyLinkedListNode"><em>SinglyLinkedListNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the head of the linked list, defaults to None</li>
+<li><strong>tail</strong> (<a class="reference internal" href="#DSA.SinglyLinkedListNode" title="DSA.SinglyLinkedListNode"><em>SinglyLinkedListNode</em></a><em>, </em><em>defaults to None</em>) – This is the pointer to the tail of the linked list</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object Methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>insert(self,data)</li>
+<li>find(self,data)</li>
+<li>deleteVal(self,data)</li>
+<li>printer(self, sep = ‘, ‘)</li>
+<li>reverse(self)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.deleteVal">
+<code class="descname">deleteVal</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.deleteVal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.deleteVal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to delete a node with the given data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>int</em>) – The value to be deleted from the list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if deleted successfully else False</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Bool</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[4, 7, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">deleteVal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[7, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">deleteVal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">deleteVal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">deleteVal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[7, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[7, 1, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">deleteVal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[7, 1]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to find the node with the given data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>int</em>) – The value to search for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The pointer to the node containing the data if found else None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#DSA.SinglyLinkedListNode" title="DSA.SinglyLinkedListNode">SinglyLinkedListNode</a></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[4, 7, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to insert a new node into the linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>int</em>) – Data to be inserted</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[4, 7, 1]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.printer">
+<code class="descname">printer</code><span class="sig-paren">(</span><em>sep='</em>, <em>'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.printer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to print the linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sep</strong> (<em>str</em><em>, </em><em>optional</em>) – The separator to put in between two values of the linked list, defaults to ‘, ‘</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[4, 7, 1]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedList.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedList.reverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedList.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to reverse the order of elements in the list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[30, 23, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[3, 23, 30]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.SinglyLinkedListNode">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">SinglyLinkedListNode</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedListNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedListNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a node in the implementation of a singly linked list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>int</em>) – The data to be stored in the node</li>
+<li><strong>next</strong> (<a class="reference internal" href="#DSA.SinglyLinkedListNode" title="DSA.SinglyLinkedListNode"><em>SinglyLinkedListNode</em></a>) – The pointer to the next node, defaults to None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object Methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>__str__(str)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.SinglyLinkedListNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedListNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedListNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedListNode</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.SinglyLinkedListNode.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#SinglyLinkedListNode.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.SinglyLinkedListNode.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convertor method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The value of the data stored in the node as a string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedListNode</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">&#39;5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">SinglyLinkedListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">&#39;-1&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DSA.Trie">
+<em class="property">class </em><code class="descclassname">DSA.</code><code class="descname">Trie</code><a class="reference internal" href="_modules/DSA.html#Trie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Impelementation of a trie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>T</strong> (<em>Dictionary</em>) – Dictionary containg the prefixes</td>
+</tr>
+</tbody>
+</table>
+<p>Object methods:</p>
+<ul class="simple">
+<li>__init__(self)</li>
+<li>find(self, root, c)</li>
+<li>insert(self, s)</li>
+<li>checkPrefix(self, s)</li>
+<li>countPrefix(self, s)</li>
+</ul>
+<dl class="method">
+<dt id="DSA.Trie.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Trie.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Trie.checkPrefix">
+<code class="descname">checkPrefix</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Trie.checkPrefix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie.checkPrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to check is a prefix is preset or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – The prefix to search for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the prefix is found else False</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Bool</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALLADS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATACOMBS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATASTROPHE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BANTER&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;APPLE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BA&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BAL&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BALLS&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BALLADS&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;BAT&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;CA&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;APP&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">checkPrefix</span><span class="p">(</span><span class="s2">&quot;CE&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Trie.countPrefix">
+<code class="descname">countPrefix</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Trie.countPrefix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie.countPrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to count the number of strings in th trie which have the given string as prefix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – The prefix to count for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The count of strings which have the given prefix</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALLADS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATACOMBS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATASTROPHE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BANTER&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;APPLE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;CA&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;CATA&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">countPrefix</span><span class="p">(</span><span class="s2">&quot;KB&quot;</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Trie.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>root</em>, <em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Trie.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to check if a character is present in the Trie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>root</strong> (<em>Dictionary</em>) – The node to search for in</li>
+<li><strong>c</strong> (<em>str</em>) – The character to search for</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the character is found in the trie</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALLADS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATACOMBS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATASTROPHE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BANTER&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;APPLE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">find</span><span class="p">((</span><span class="n">t</span><span class="o">.</span><span class="n">T</span><span class="p">)[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="DSA.Trie.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#Trie.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.Trie.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method to insert a string into the trie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – The string to insert</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BAT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALL&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BALLADS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATACOMBS&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;CATASTROPHE&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;BANTER&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="DSA.merge">
+<code class="descclassname">DSA.</code><code class="descname">merge</code><span class="sig-paren">(</span><em>list1</em>, <em>list2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DSA.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#DSA.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method to merge to singly linked list into one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>list1</strong> (<a class="reference internal" href="#DSA.SinglyLinkedList" title="DSA.SinglyLinkedList"><em>SinglyLinkedList</em></a>) – The first list to merge</li>
+<li><strong>list2</strong> (<a class="reference internal" href="#DSA.SinglyLinkedList" title="DSA.SinglyLinkedList"><em>SinglyLinkedList</em></a>) – The second list to merge</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The merged list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#DSA.SinglyLinkedList" title="DSA.SinglyLinkedList">SinglyLinkedList</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">=</span><span class="n">merge</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span>
+<span class="go">[2, 3, 4, 5, 6, 7]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">outlabq2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">q2</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DSA module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">q2</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">q2</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, 210100143.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/DSA.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

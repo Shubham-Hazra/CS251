@@ -1,0 +1,162 @@
+\hypertarget{classSinglyLinkedList}{}\doxysection{Singly\+Linked\+List Class Reference}
+\label{classSinglyLinkedList}\index{SinglyLinkedList@{SinglyLinkedList}}
+
+
+Class for a Singly Linked List.  
+
+
+
+
+{\ttfamily \#include $<$D\+S\+A.\+h$>$}
+
+
+
+Collaboration diagram for Singly\+Linked\+List\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSinglyLinkedList_a4f399b2303c5d13fbe9ac9d211a61d5e}{Singly\+Linked\+List}} ()
+\begin{DoxyCompactList}\small\item\em This is a constructor method to create a \mbox{\hyperlink{classSinglyLinkedList}{Singly\+Linked\+List}}. Sets head to N\+U\+LL. Sets tail to N\+U\+LL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSinglyLinkedList_a00d776abb850205c495c04556e0fd0fc}{insert}} (ll data)
+\begin{DoxyCompactList}\small\item\em This is a member function to insert a new element. Inserts a new node with data as the element in it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSinglyLinkedListNode}{Singly\+Linked\+List\+Node}} $\ast$ \mbox{\hyperlink{classSinglyLinkedList_ad8472a6cc699c9dfbd897c9ca60e6909}{find}} (ll data)
+\begin{DoxyCompactList}\small\item\em This is a member function to find an element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSinglyLinkedList_a9aa13bc10198e985fb9d2ba3a9510ebb}{delete\+Val}} (ll data)
+\begin{DoxyCompactList}\small\item\em This is a member function to delete an element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSinglyLinkedList_ab33e35a37e0d7790452df0972568f33b}{printer}} (string sep=\char`\"{}, \char`\"{})
+\begin{DoxyCompactList}\small\item\em This is a printer function to print the values in the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSinglyLinkedList_a2c3ee5aa908f99eccde0a91ae0675626}{reverse}} ()
+\begin{DoxyCompactList}\small\item\em This is a member function to reverse the order of the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSinglyLinkedList_a004deeaf32ec4f6c3508bbb785f1910a}\label{classSinglyLinkedList_a004deeaf32ec4f6c3508bbb785f1910a}} 
+\mbox{\hyperlink{classSinglyLinkedListNode}{Singly\+Linked\+List\+Node}} $\ast$ \mbox{\hyperlink{classSinglyLinkedList_a004deeaf32ec4f6c3508bbb785f1910a}{head}}
+\begin{DoxyCompactList}\small\item\em Pointer to the head of the list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSinglyLinkedList_a0d3de1b79e5eca86dfb1936ca372aa79}\label{classSinglyLinkedList_a0d3de1b79e5eca86dfb1936ca372aa79}} 
+\mbox{\hyperlink{classSinglyLinkedListNode}{Singly\+Linked\+List\+Node}} $\ast$ \mbox{\hyperlink{classSinglyLinkedList_a0d3de1b79e5eca86dfb1936ca372aa79}{tail}}
+\begin{DoxyCompactList}\small\item\em Pointer to the tail of the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for a Singly Linked List. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSinglyLinkedList_a4f399b2303c5d13fbe9ac9d211a61d5e}\label{classSinglyLinkedList_a4f399b2303c5d13fbe9ac9d211a61d5e}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!SinglyLinkedList@{SinglyLinkedList}}
+\index{SinglyLinkedList@{SinglyLinkedList}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{SinglyLinkedList()}{SinglyLinkedList()}}
+{\footnotesize\ttfamily Singly\+Linked\+List\+::\+Singly\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is a constructor method to create a \mbox{\hyperlink{classSinglyLinkedList}{Singly\+Linked\+List}}. Sets head to N\+U\+LL. Sets tail to N\+U\+LL. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em N\+U\+LL} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSinglyLinkedList_a9aa13bc10198e985fb9d2ba3a9510ebb}\label{classSinglyLinkedList_a9aa13bc10198e985fb9d2ba3a9510ebb}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!deleteVal@{deleteVal}}
+\index{deleteVal@{deleteVal}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{deleteVal()}{deleteVal()}}
+{\footnotesize\ttfamily bool Singly\+Linked\+List\+::delete\+Val (\begin{DoxyParamCaption}\item[{ll}]{data }\end{DoxyParamCaption})}
+
+
+
+This is a member function to delete an element. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ll} & data \\
+\hline
+\mbox{\texttt{ out}}  & {\em bool} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successfully deleted else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSinglyLinkedList_ad8472a6cc699c9dfbd897c9ca60e6909}\label{classSinglyLinkedList_ad8472a6cc699c9dfbd897c9ca60e6909}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!find@{find}}
+\index{find@{find}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSinglyLinkedListNode}{Singly\+Linked\+List\+Node}} $\ast$ Singly\+Linked\+List\+::find (\begin{DoxyParamCaption}\item[{ll}]{data }\end{DoxyParamCaption})}
+
+
+
+This is a member function to find an element. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ll} & data \\
+\hline
+\mbox{\texttt{ out}}  & {\em ll} & prev \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if not found else returns pointer to the node containing the element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSinglyLinkedList_a00d776abb850205c495c04556e0fd0fc}\label{classSinglyLinkedList_a00d776abb850205c495c04556e0fd0fc}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!insert@{insert}}
+\index{insert@{insert}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Singly\+Linked\+List\+::insert (\begin{DoxyParamCaption}\item[{ll}]{data }\end{DoxyParamCaption})}
+
+
+
+This is a member function to insert a new element. Inserts a new node with data as the element in it. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ll} & data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSinglyLinkedList_ab33e35a37e0d7790452df0972568f33b}\label{classSinglyLinkedList_ab33e35a37e0d7790452df0972568f33b}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!printer@{printer}}
+\index{printer@{printer}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{printer()}{printer()}}
+{\footnotesize\ttfamily void Singly\+Linked\+List\+::printer (\begin{DoxyParamCaption}\item[{string}]{sep = {\ttfamily \char`\"{},~\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+This is a printer function to print the values in the list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em N\+U\+LL} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em Prints} & the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSinglyLinkedList_a2c3ee5aa908f99eccde0a91ae0675626}\label{classSinglyLinkedList_a2c3ee5aa908f99eccde0a91ae0675626}} 
+\index{SinglyLinkedList@{SinglyLinkedList}!reverse@{reverse}}
+\index{reverse@{reverse}!SinglyLinkedList@{SinglyLinkedList}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void Singly\+Linked\+List\+::reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is a member function to reverse the order of the list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em N\+U\+LL} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DSA_8h}{D\+S\+A.\+h}}\item 
+D\+S\+A.\+cpp\end{DoxyCompactItemize}
