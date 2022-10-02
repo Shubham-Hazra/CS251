@@ -1,0 +1,4 @@
+https://docs.typo3.org/m/typo3/docs-how-to-document/main/en-us/WritingReST/CheatSheet.html
+https://stackoverflow.com/questions/58189699/use-sphinx-doctest-with-example
+https://bashtage.github.io/sphinx-material/rst-cheatsheet/rst-cheatsheet.html
+https://opendev.org/openstack/cliff/commit/0069ccdea4e1245bab2d492a70445626868d6f5d

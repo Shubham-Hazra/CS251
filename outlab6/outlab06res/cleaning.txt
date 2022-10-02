@@ -1,2 +1,0 @@
-./../doxyclean.sh
-./../sphinxclean.sh
