@@ -26,4 +26,5 @@ public class Node {
          */
         adjacentNodes.put(node, distance);
     }
+
 }
