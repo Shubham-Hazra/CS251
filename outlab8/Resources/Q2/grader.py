@@ -1,4 +1,7 @@
 
+from exception import Lab5Exception
+
+
 def add(arg1, arg2):
     r"""
         This function accepts two arguments - arg1 and arg2.
@@ -7,6 +10,8 @@ def add(arg1, arg2):
         You are expected to think of corner cases,
         and appropriately raise Exception.
     """
+    if (not isinstance(arg1,(int,float,complex))) or (not isinstance(arg2,(int,float,complex))):
+        raise Lab5Exception("Only numeric inputs allowed")
     return arg1+arg2
 
 def subtract(arg1, arg2):
@@ -17,6 +22,8 @@ def subtract(arg1, arg2):
         As the previous function, you are expected to think of corner cases,
         and appropriately raise Exception.
     """
+    if (not isinstance(arg1,(int,float,complex))) or (not isinstance(arg2,(int,float,complex))):
+        raise Lab5Exception("Only numeric inputs allowed")
     return arg1-arg2
 
 def divide(arg1, arg2):
@@ -26,6 +33,10 @@ def divide(arg1, arg2):
 
         You are expected to think of corner cases, and appropriately raise Exception.
     """
+    if (not isinstance(arg1,(int,float))) or (not isinstance(arg2,(int,float))):
+        raise Lab5Exception("Only numeric inputs allowed")
+    if arg2 == 0:
+        raise Lab5Exception("Division by 0 error")
     return arg1/arg2
 
 def str_left_rotate(arg1, arg2):
@@ -43,6 +54,12 @@ def str_left_rotate(arg1, arg2):
 
         Again, you are expected to think of corner cases, and appropriately raise Exception.
     """
+    if not isinstance(arg1,str):
+        raise Lab5Exception("Only a string has to be rotated")
+    if not isinstance(arg2,int):
+        raise Lab5Exception("Rotation amount has to be an integer")
+    if arg2 < 0:
+        raise Lab5Exception("Rotation amount cannot be negative")
     return arg1[(arg2%len(arg1)):] + arg1[0:(arg2%len(arg1))]
 
 def apply(fn, args):
