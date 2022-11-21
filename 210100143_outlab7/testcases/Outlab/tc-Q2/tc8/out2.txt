@@ -1,0 +1,88 @@
+2
+Server started
+Waiting for a client ...
+Board:
+-------------
+|   |   |   | 
+-------------
+|   |   |   | 
+-------------
+|   |   |   | 
+-------------
+Board:
+-------------
+| X |   |   | 
+-------------
+|   |   |   | 
+-------------
+|   |   |   | 
+-------------
+Enter the position: Board:
+-------------
+| X |   |   | 
+-------------
+|   | O |   | 
+-------------
+|   |   |   | 
+-------------
+Board:
+-------------
+| X |   |   | 
+-------------
+|   | O |   | 
+-------------
+|   |   | X | 
+-------------
+Enter the position: Board:
+-------------
+| X |   |   | 
+-------------
+|   | O |   | 
+-------------
+| O |   | X | 
+-------------
+Board:
+-------------
+| X |   |   | 
+-------------
+|   | O |   | 
+-------------
+| O | X | X | 
+-------------
+Enter the position: INVALID INPUT! Enter again
+Enter the position: Board:
+-------------
+| X |   |   | 
+-------------
+| O | O |   | 
+-------------
+| O | X | X | 
+-------------
+Board:
+-------------
+| X |   |   | 
+-------------
+| O | O | X | 
+-------------
+| O | X | X | 
+-------------
+Enter the position: INVALID INPUT! Enter again
+Enter the position: INVALID INPUT! Enter again
+Enter the position: INVALID INPUT! Enter again
+Enter the position: Board:
+-------------
+| X | O |   | 
+-------------
+| O | O | X | 
+-------------
+| O | X | X | 
+-------------
+Board:
+-------------
+| X | O | X | 
+-------------
+| O | O | X | 
+-------------
+| O | X | X | 
+-------------
+YOU LOSE

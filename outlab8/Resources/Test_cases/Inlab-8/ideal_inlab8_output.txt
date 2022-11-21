@@ -1,0 +1,16 @@
+\begin{codebox}
+\Procname{\proc{insertion-sort}(\id{A}, \id{B})}
+\zi   \For \id{j} $\leftarrow$ 2 \To \attrib{A}{length} \Do
+\zi      \id{key} $\leftarrow$ \id{A}[\id{j}] \Comment Insert \id{A}[\id{j}] into the sorted sequence \id{A}[1 $\twodots$ \id{j}$-$1]
+\zi      \id{i} $\leftarrow$ \id{j} $-$ 1
+\zi      \While \id{i} $>$ 0 \id{and} \id{A}[\id{i}] $>$ \id{key} \Do
+\zi         \id{A}[\id{i}$+$1] $\leftarrow$ \id{A}[\id{i}]
+\zi         \id{i} $\leftarrow$ \id{i} $-$ 1
+\zi      \End
+\zi      \id{A}[\id{i}$+$1] $\leftarrow$ \id{key}
+\zi   \End
+\zi   \If \id{x} $\isequal$ 3 \Then \Do
+\zi      {{\id{Do} \id{something} \id{special}}}
+\zi   \End
+\zi\End
+\end{codebox}

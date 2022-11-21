@@ -1,0 +1,3 @@
+Score = 8.82
+Remarks = Your code failed for some test cases!
+Obtained out = [{'name': '', 'gender': 'Male', 'age': 32, 'cgpa': 9.2, 'home_town': 'Mumbai'}, {'name': 'Sachin Tendulkar', 'gender': 'Male', 'age': 32, 'cgpa': 9.2, 'home_town': ''}, {'name': 'Sachin Tendulkar', 'gender': 'Male', 'age': 32, 'cgpa': 9.2, 'home_town': 'Mumbai'}, {'name': 'PV Sindhu', 'gender': 'Female', 'age': 28, 'cgpa': 4.6, 'home_town': 'Hyderabad'}, {'name': 'Virat Kohli', 'gender': 'Prefer Not To Say', 'age': 31, 'cgpa': 9.1, 'home_town': 'New Delhi'}, {'name': 'Dua Saleh', 'gender': 'Non-Binary', 'age': 19, 'cgpa': 6.3, 'home_town': 'Los Angeles'}]

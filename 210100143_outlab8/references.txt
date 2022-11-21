@@ -1,0 +1,5 @@
+https://github.com/pandas-dev/pandas/issues/26927
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_string.html
+https://www.geeksforgeeks.org/python-pandas-dataframe-mean/
+https://www.geeksforgeeks.org/python-pandas-dataframe-groupby/
+

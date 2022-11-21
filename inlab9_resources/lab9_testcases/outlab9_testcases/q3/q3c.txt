@@ -1,0 +1,20 @@
+40,G Gambhir,147
+100,SE Marsh,130
+57,RG Sharma,129
+187,DA Warner,116
+32,SR Watson,114
+20,MS Dhoni,109
+162,CH Gayle,108
+21,SK Raina,99
+147,DR Smith,98
+88,KD Karthik,96
+19,MEK Hussey,96
+85,AM Rahane,93
+8,V Kohli,92
+163,MC Henriques,91
+17,PA Patel,91
+336,CA Lynn,73
+320,DA Miller,71
+96,MK Pandey,71
+110,AB de Villiers,70
+87,MK Tiwary,68

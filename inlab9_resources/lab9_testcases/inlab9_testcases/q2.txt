@@ -1,0 +1,12 @@
+inputs:
+AL
+PR
+NY
+AU
+
+
+outputs:
+35739
+00603,00604,00605
+00501,00544
+NOT FOUND

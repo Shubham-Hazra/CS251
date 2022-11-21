@@ -1,0 +1,5 @@
+https://www.tutorialspoint.com/How-to-sort-a-Python-date-string-list
+https://stackoverflow.com/questions/14472795/how-do-i-sort-a-list-of-datetime-or-date-objects
+https://stackoverflow.com/questions/2419405/silence-output-from-simplexmlrpcserver
+https://www.quora.com/In-Python-how-do-you-use-requests-to-scrape-JavaScript-dynamic-data
+

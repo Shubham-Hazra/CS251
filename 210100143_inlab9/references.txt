@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/33985863/hiding-console-output-produced-by-os-system
+https://discuss.dizzycoding.com/suppress-output-in-python-calls-to-executables/
+
