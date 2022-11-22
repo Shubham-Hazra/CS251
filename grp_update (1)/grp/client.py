@@ -152,10 +152,30 @@ def show_message(sender, msg):
     if(sender != 'server'):
         pass
     if(sender != 'server'):
-        msg = colored(f"{sender}: ",'green')+msg
+        msg = colored("[Direct]",'cyan')+"-"+colored(f"{sender}",'green')+": "+msg
     else:
         msg = colored(msg,'red')  
     print(msg)
+
+def show_group_message(grpname,sender, msg):
+    if(sender != 'server'):
+        pass
+    if(sender != 'server'):
+        msg = colored(f"[{grpname}]",'cyan')+"-"+colored(f"{sender}",'green')+": "+msg
+    else:
+        msg = colored(msg,'red')  
+    print(msg)
+
+lock = threading.Lock()
+in_thread = False
+def change_in_thread():
+    global in_thread
+    lock.acquire()
+    if in_thread:
+        in_thread = False
+    else:
+        in_thread = True
+    lock.release()
 
 # Function that recieves the message from the server
 def recv_message(private_key):
@@ -188,8 +208,8 @@ def recv_message(private_key):
                     elif message.msg == 'success_created_table':
                         print(f"Successfully created {group_name}")
                         print("Enter 'exit' when you have finished adding members")
-                        member = input("Enter the username of the member: ")
                         while True:
+                            member = input("Enter the username of the member: ")
                             if member == "exit":
                                 data = pickle.dumps(msg('group',username,member,'exit',group_name))
                                 s.send(data)
@@ -205,35 +225,68 @@ def recv_message(private_key):
                         show_admin_commands()
                     elif message == 'failed_create_table':
                         print(f"Failed to create {group_name}")
+                        # all add msgs
+                    elif message.msg == 'added_successfully':
+                        member  = input("Enter name of the member to add: ")
+                        data = pickle.dumps(msg('group',username,member,'add',group_name))
+                        s.send(data)
+                        conf = s.recv(buffer)
+                        message = pickle.loads(conf).msg
+                        if message == 'success':
+                            print(f"{member} has been added to the group {group_name}")
+                        else:
+                            print(f"{member} could not be added {group_name}")
+                    elif message.msg == 'kicked_successfully':
+                        member  = input("Enter name of the member to kick: ")
+                        data = pickle.dumps(msg('group',username,member,'kick',group_name))
+                        s.send(data)
+                        conf = s.recv(buffer)
+                        message = pickle.loads(conf).msg
+                        if message == 'success':
+                            print(f"{member} has been kicked from the group {group_name}")
+                        else:
+                            print(f"{member} is not present in the group")
+                    elif message.msg == 'failed_kicking':
+                        print(f"Failed to kick {message.sender} from {group_name}")
+                    elif message.msg == 'group_deleted':
+                        print(f"{group_name} has been deleted")
+                    elif message.msg == 'failed_deleting_group':
+                        print(f"Failed to delete {group_name}")
+                    else:
+                        if message.sender != 'server':
+                            decrypted_msg = rsa.decrypt(message.msg,private_key).decode()
+                            show_group_message(message.group_name,message.sender,decrypted_msg)
+                        else:
+                            show_group_message(message.group_name,message.sender,message.msg)
+                    change_in_thread()
 
                         
 
 
 # Function to send the message to the given username
 def send_message(message):
-        r_name = input("Whom to send message?: ")
-        if r_name in pub_keys:
-            public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
-            message = rsa.encrypt(message.encode(),public_partner)
-            package = pickle.dumps(msg('receive', username, r_name, message))
-            s.send(package)
-        else:
-            print(f"{r_name} is offline")
-
-def send_group_message(message):
-        r_name = input("Whom to send message?: ")
-        if r_name in pub_keys:
-            public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
-            message = rsa.encrypt(message.encode(),public_partner)
-            package = pickle.dumps(msg('receive', username, r_name, message))
-            s.send(package)
-        else:
-            print(f"{r_name} is offline")
+        grp_or_ind = input("Enter i for individual message and g for group message: ")
+        if grp_or_ind == "i":
+            r_name = input("Whom to send message?: ")
+            if r_name in pub_keys:
+                public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                message = rsa.encrypt(message.encode(),public_partner)
+                package = pickle.dumps(msg('receive', username, r_name, message))
+                s.send(package)
+            else:
+                print(f"{r_name} is offline")
+        elif grp_or_ind == "g":
+            grp_name = input("Which group to send message?: ")
+            for r_name in pub_keys:
+                public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                message_ = rsa.encrypt(message.encode(),public_partner)
+                package = pickle.dumps(msg('group', username, r_name, message_,grp_name))
+                s.send(package)
 
 def login():
     global username
     print("1 - LOGIN")
-    print("2 - NEW USER")
+    print("2 - SIGNUP")
     opt = int(input(">>> "))
     while True:
         if(opt == 1):
@@ -284,13 +337,14 @@ def main():
     opt = login()
     show_welcome_message()
     public_key,private_key = rsa.newkeys(1024)
-    pub_keys[username] = public_key.save_pkcs1("PEM")
     message = public_key.save_pkcs1("PEM")
     data = pickle.dumps(msg('connect',username,'server',message))
     s.send(data)
     receive_thread = threading.Thread(target=recv_message,args=(private_key,))
     receive_thread.start()
     while True:
+        if in_thread:
+            continue
         chat = input()
         if(len(chat) == 0):
             continue
@@ -312,73 +366,22 @@ def main():
                 grp = input("Enter name of the group: ")
                 data = pickle.dumps(msg('group',username,'server','kick',grp))
                 s.send(data)
-                conf = s.recv(buffer)
-                message = pickle.loads(conf).msg
-                if message == 'admin':
-                    member  = input("Enter name of the member to kick: ")
-                    data = pickle.dumps(msg('group',username,member,'kick',grp))
-                    s.send(data)
-                    conf = s.recv(buffer)
-                    message = pickle.loads(conf).msg
-                    if message == 'success':
-                        print(f"{member} has been kicked from the group {grp}")
-                    else:
-                        print(f"{member} is not present in the group")
-                else:
-                    print("You do not have admin privileges for this group")
+                change_in_thread()
             elif(chat == "\\add"):
                 grp = input("Enter name of the group: ")
                 data = pickle.dumps(msg('group',username,'server','add',grp))
                 s.send(data)
-                conf = s.recv(buffer)
-                message = pickle.loads(conf).msg
-                if message == 'admin':
-                    member  = input("Enter name of the member to add: ")
-                    data = pickle.dumps(msg('group',username,member,'add',grp))
-                    s.send(data)
-                    conf = s.recv(buffer)
-                    message = pickle.loads(conf).msg
-                    if message == 'success':
-                        print(f"{member} has been added to the group {grp}")
-                    else:
-                        print(f"{member} is not present in the group")
-                else:
-                    print("You do not have admin privileges for this group")
+                change_in_thread()
             elif(chat == "\\delgrp"):
                 grp = input("Enter name of the group: ")
                 data = pickle.dumps(msg('group',username,'server','delete',grp))
                 s.send(data)
-                conf = s.recv(buffer)
-                message = pickle.loads(conf).msg
-                if message == 'success':
-                    print(f"{member} has been added to the group {grp}")
-                else:
-                    print(f"{member} is not present in the group")
+                change_in_thread()
             elif(chat == "\\create"):
                 grp = input("Enter name of the group: ")
                 data = pickle.dumps(msg('group',username,'server','create',grp))
                 s.send(data)
-                # conf = s.recv(buffer)
-                # message = pickle.loads(conf).msg
-                # if message == 'success_created_table':
-                #     print(f"{grp} has been created")
-                # else:
-                #     print(f"Failed to create {grp}")
-                # print("Enter 'exit' when you have finished adding members")
-                # while True:
-                #     member = input("Enter the username of the member: ")
-                #     if member == "exit":
-                #         data = pickle.dumps(msg('group',username,member,'exit',grp))
-                #         s.send(data)
-                #         break
-                #     data = pickle.dumps(msg('group',username,member,'add',grp))
-                #     s.send(data)
-                #     conf = s.recv(buffer)
-                #     message = pickle.loads(conf).msg
-                #     if message == 'success':
-                #         print(f"{member} has been added to the group {grp}")
-                #     else:
-                #         print(f"{member} could not be added to the group")
+                change_in_thread()
         else:
             chat = f"{chat} " + colored(ctime(),'blue')
             send_message(chat)

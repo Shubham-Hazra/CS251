@@ -81,11 +81,9 @@ while True:
             package = pickle.dumps(msg('recieve','server', sender,message))
             server_sock.sendto(package, addr)
     elif msgtype == 'group':
-        print(msg_)
         if msg_ == "create":
             if create_grp_table(user_info_db_path, grp, sender):
                 server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'success_created_table', grp)), addr)
-                print("SENT")
                 addmem = pickle.loads(server_sock.recv(BUFSIZE))
                 while addmem.msg != 'exit':
                     if add_member(user_info_db_path, addmem.group_name, addmem.receiver):
@@ -93,23 +91,41 @@ while True:
                     addmem = pickle.loads(server_sock.recv(BUFSIZE))
             else:
                 server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'failed_create_table', grp)), addr)
-                print("SENT")
         elif msg_ == "add":
             if check_admin(user_info_db_path, grp, sender):
-                server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'admin', grp)), addr)
+                server_sock.sendto(pickle.dumps(msg('group', sender, sender, 'added_successfully', grp)), addr)
                 stuff = server_sock.recv(BUFSIZE)
                 addmem = pickle.loads(stuff)
                 if add_member(user_info_db_path, addmem.group_name, addmem.receiver):
-                    server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'success', grp)), addr)
+                    server_sock.sendto(pickle.dumps(msg('group', addmem.receiver, sender, 'success', grp)), addr)
+                else:
+                    server_sock.sendto(pickle.dumps(msg('group', addmem.receiver, sender, 'failed_adding', grp)), addr)
             else:
-                server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'fail', grp)), addr)
+                server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'not_admin', grp)), addr)
             
         elif msg_ == "delgrp":
-            pass
+            if check_admin(user_info_db_path, grp, sender):
+                pass
+                # server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'admin', grp)), addr)
+
         elif msg_ == "kick":
-            pass
+            if check_admin(user_info_db_path, grp, sender):
+                server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'kicked_successfully', grp)), addr)
+                stuff = server_sock.recv(BUFSIZE)
+                delmem = pickle.loads(stuff)
+                if delete_member(user_info_db_path, grp, delmem.receiver):
+                    server_sock.sendto(pickle.dumps(msg('group', addmem.receiver, sender, 'success', grp)), addr)
+                else:
+                    server_sock.sendto(pickle.dumps(msg('group', addmem.receiver, sender, 'failed_kicking', grp)), addr)
+            else:
+                server_sock.sendto(pickle.dumps(msg('group', 'server', sender, 'not_admin', grp)), addr)
         else:
-            pass
+            if(receiver in AD):
+                server_sock.sendto(data, AD[receiver])
+            else:
+                message = f"{receiver} does not exist"
+                package = pickle.dumps(msg('recieve','server', sender,message))
+                server_sock.sendto(package, addr)
             #send_to()
         # else:
         #     message = f"{receiver} does not exist"
