@@ -13,46 +13,14 @@ from colorama import init
 from termcolor import colored
 import base64,zlib
 import multiprocessing
+import climage
 
 # datetime.datetime.strptime(time.ctime(), "%c")
-
-class MyThread(threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-        self.paused = False
-        # Explicitly using Lock over RLock since the use of self.paused
-        # break reentrancy anyway, and I believe using Lock could allow
-        # one thread to pause the worker, while another resumes; haven't
-        # checked if Condition imposes additional limitations that would 
-        # prevent that. In Python 2, use of Lock instead of RLock also
-        # boosts performance.
-        self.pause_cond = threading.Condition(threading.Lock())
-    def run(self):
-        while True:
-            with self.pause_cond:
-                while self.paused:
-                    self.pause_cond.wait()
-                #thread should do the thing if
-                #not paused
-                print ('do the thing')
-    def pause(self):
-        self.paused = True
-        # If in sleep, we acquire immediately, otherwise we wait for thread
-        # to release condition. In race, worker will still see self.paused
-        # and begin waiting until it's set back to False
-        self.pause_cond.acquire()
-    #should just resume the thread
-    def resume(self):
-        self.paused = False
-        # Notify so thread will wake after lock released
-        self.pause_cond.notify()
-        # Now release the lock
-        self.pause_cond.release()
 
 # basic variables
 buffer = 4096
 
-pub_keys={}
+# pub_keys={}
 username = ""
 user_info_db_path = "databases/userInfo.db"
 group_db_path = "databases/groups.db"
@@ -87,17 +55,13 @@ except :
     sys.exit()
 
 def encrypt_blob(blob, public_partner):
-
-    # compress the data first
-    blob = zlib.compress(blob)
-
     # In determining the chunk size, determine the private key length used in bytes
     # and subtract 42 bytes (when using PKCS1_OAEP). The data will be in encrypted
     # in chunks
-    chunk_size = 470
+    chunk_size = 86
     offset = 0
     end_loop = False
-    encrypted = ""
+    encrypted = b""
 
     while not end_loop:
         # The chunk
@@ -119,7 +83,7 @@ def encrypt_blob(blob, public_partner):
     # Base 64 encode the encrypted file
     return base64.b64encode(encrypted)
 
-
+# Function that decrypts the message from the user, and prints it out
 def decrypt_blob(encrypted_blob, private_key):
 
     # Base 64 decode the data
@@ -127,7 +91,7 @@ def decrypt_blob(encrypted_blob, private_key):
 
     # In determining the chunk size, determine the private key length used in bytes.
     # The data will be in decrypted in chunks
-    chunk_size = 512
+    chunk_size = 128
     offset = 0
     decrypted = ""
 
@@ -142,12 +106,8 @@ def decrypt_blob(encrypted_blob, private_key):
         # Increase the offset by chunk size
         offset += chunk_size
 
-    # return the decompressed decrypted data
-    return zlib.decompress(decrypted)
+    return decrypted
 
-# Function that decrypts the message from the user, and prints it out
-
-# Function that decrypts the message from the user, and prints it out
 def show_message(sender, msg):
     if(sender != 'server'):
         pass
@@ -188,17 +148,40 @@ def recv_message(private_key):
                 message = pickle.loads(msg_)
                 if(message.type == 'receive'):
                     if message.sender != 'server':
-                        decrypted_msg = rsa.decrypt(message.msg,private_key).decode()
+                        decrypted_msg = decrypt_blob(message.msg,private_key)
                         show_message(message.sender,decrypted_msg)
                     else:
                         show_message(message.sender,message.msg)
                 elif(message.type == 'key'):
+                    ## Not required as done in database
                     public_partner_key = message.msg
-                    pub_keys[message.sender] = public_partner_key
+                    # pub_keys[message.sender] = public_partner_key
                 elif(message.type == 'group'):
                     pass
                 elif(message.type == 'disconnect'):
-                    pub_keys.pop(message.sender)
+                    ## Not required as done in database
+                    # pub_keys.pop(message.sender)
+                    pass
+                elif(message.type == 'image'):
+                    change_in_thread()
+                    address = input("Image received. Address to store: ")
+                    image_str = decrypt_blob(message.msg,private_key)
+                    decodeit = open(address, 'wb')
+                    decodeit.write(base64.b64decode((image_str)))
+                    decodeit.close()
+                    output = climage.convert(address)
+                    print(output)
+                    change_in_thread()
+                elif(message.type == 'group_image'):
+                    change_in_thread()
+                    address = input("Image received. Address to store: ")
+                    image_str = decrypt_blob(message.msg,private_key)
+                    decodeit = open(address, 'wb')
+                    decodeit.write(base64.b64decode((image_str)))
+                    decodeit.close()
+                    output = climage.convert(address)
+                    print(output)
+                    change_in_thread()
                 if(message.type == 'group'):
                     group_name = message.group_name
                     if message.msg == 'admin':
@@ -249,12 +232,15 @@ def recv_message(private_key):
                     elif message.msg == 'failed_kicking':
                         print(f"Failed to kick {message.sender} from {group_name}")
                     elif message.msg == 'group_deleted':
+                        # conf = s.recv(buffer)
+                        # message = pickle.loads(conf).msg
+                        # if message == 'success':
                         print(f"{group_name} has been deleted")
                     elif message.msg == 'failed_deleting_group':
                         print(f"Failed to delete {group_name}")
                     else:
                         if message.sender != 'server':
-                            decrypted_msg = rsa.decrypt(message.msg,private_key).decode()
+                            decrypted_msg = decrypt_blob(message.msg,private_key)
                             show_group_message(message.group_name,message.sender,decrypted_msg)
                         else:
                             show_group_message(message.group_name,message.sender,message.msg)
@@ -268,19 +254,52 @@ def send_message(message):
         grp_or_ind = input("Enter i for individual message and g for group message: ")
         if grp_or_ind == "i":
             r_name = input("Whom to send message?: ")
-            if r_name in pub_keys:
-                public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
-                message = rsa.encrypt(message.encode(),public_partner)
+            # if r_name in pub_keys:
+            send_key = get_pubkey(user_info_db_path, r_name)
+            if send_key != "-1":
+                # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                public_partner = rsa.PublicKey.load_pkcs1(send_key)
+                message = encrypt_blob(message,public_partner)
                 package = pickle.dumps(msg('receive', username, r_name, message))
                 s.send(package)
             else:
                 print(f"{r_name} is offline")
         elif grp_or_ind == "g":
             grp_name = input("Which group to send message?: ")
-            for r_name in pub_keys:
-                public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
-                message_ = rsa.encrypt(message.encode(),public_partner)
-                package = pickle.dumps(msg('group', username, r_name, message_,grp_name))
+            members = view_all_members(group_db_path, grp_name)
+            # for r_name in pub_keys:
+            for r_name in members:
+                # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                public_partner = rsa.PublicKey.load_pkcs1(get_pubkey(user_info_db_path, r_name[0]))
+                message_ = encrypt_blob(message,public_partner)
+                package = pickle.dumps(msg('group', username, r_name[0], message_,grp_name))
+                s.send(package)
+
+def send_image(address):
+        with open(address, "rb") as imageFile:
+            image_str = base64.b64encode(imageFile.read())
+        grp_or_ind = input("Enter i for individual message and g for group message: ")
+        if grp_or_ind == "i":
+            r_name = input("Whom to send message?: ")
+            # if r_name in pub_keys:
+            send_key = get_pubkey(user_info_db_path, r_name)
+            if send_key != -1:
+                # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                public_partner = rsa.PublicKey.load_pkcs1(send_key)
+                message = encrypt_blob(image_str,public_partner)
+                package = pickle.dumps(msg('image', username, r_name, message))
+                s.send(package)
+            else:
+                print(f"{r_name} is offline")
+        elif grp_or_ind == "g":
+            grp_name = input("Which group to send message?: ")
+            members = view_all_members(group_db_path, grp_name)
+            # for r_name in pub_keys:
+            for r_name in members:
+                # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
+                public_partner = rsa.PublicKey.load_pkcs1(get_pubkey(user_info_db_path, r_name[0]))
+                message_ = encrypt_blob(image_str,public_partner)
+                package = pickle.dumps(msg('group_image', username, r_name[0], message_,grp_name))
                 s.send(package)
 
 def login():
@@ -308,6 +327,9 @@ def login():
             message = username+" "+password
             data = pickle.dumps(msg('register',username,'server',message))
             s.send(data)
+            public_key,private_key = rsa.newkeys(1024)
+            mesg = public_key.save_pkcs1("PEM")+b" "+private_key.save_pkcs1("PEM")
+            s.send(mesg)
             conf = s.recv(buffer)
             message = pickle.loads(conf).msg
             if message == 'success':
@@ -319,10 +341,11 @@ def login():
 def show_welcome_message():
     print(colored("Welcome to Command Line Messenger (CLM)", 'cyan'))
     print(colored("Some common commands that you can run are:", 'cyan'))
-    print(colored("1) \quit: To quit the messenger", 'green'))
-    print(colored("2) \online - view all users that are currently online", 'green'))
-    print(colored("3) \groups - view all groups that you are currently a part of", 'green'))
-    print(colored("4) \create - create a new group", 'green'))
+    print(colored("1) \\quit: To quit the messenger", 'green'))
+    print(colored("2) \\online - view all users that are currently online", 'green'))
+    print(colored("3) \\groups - view all groups that you are currently a part of", 'green'))
+    print(colored("4) \\create - create a new group", 'green'))
+    print(colored("5) \\image - send images", 'green'))
     return
 
 def show_admin_commands():
@@ -336,8 +359,10 @@ def show_admin_commands():
 def main():
     opt = login()
     show_welcome_message()
-    public_key,private_key = rsa.newkeys(1024)
-    message = public_key.save_pkcs1("PEM")
+    public_key = rsa.PublicKey.load_pkcs1(get_pubkey(user_info_db_path, username))
+    private_key = rsa.PrivateKey.load_pkcs1(get_privkey(user_info_db_path, username))
+    # public_key,private_key = rsa.newkeys(1024)
+    message = public_key.save_pkcs1("PEM").decode()
     data = pickle.dumps(msg('connect',username,'server',message))
     s.send(data)
     receive_thread = threading.Thread(target=recv_message,args=(private_key,))
@@ -362,6 +387,9 @@ def main():
                 view_all(user_info_db_path)
             elif(chat == "\\groups"):
                 view_all_groups(group_db_path, username)
+            elif(chat == '\\images'):
+                address = input("Enter the address of the image: ")
+                send_image(address)
             elif(chat == "\\kick"):
                 grp = input("Enter name of the group: ")
                 data = pickle.dumps(msg('group',username,'server','kick',grp))

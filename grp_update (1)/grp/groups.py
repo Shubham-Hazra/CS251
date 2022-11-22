@@ -26,6 +26,7 @@ def view_all_members(path,grpname):
         print(f"{i[0]}")
     cur.close()
     connection.close()
+    return user_info
 
 def drop_table(path,grpname):
     connection = sqlite3.connect(path)
@@ -97,7 +98,8 @@ def delete_member(path,grpname,username):
 def view_all_groups(path, username):
     connection = sqlite3.connect(path)
     cur = connection.cursor()
-    cur.execute(f"select m.name from pragma_table_info m")
+    cur.execute(f"SELECT name FROM sqlite_master WHERE type='table'")
+    print(cur.fetchall())
     cur.close()
     connection.close()
 
