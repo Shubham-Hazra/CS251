@@ -147,6 +147,7 @@ def recv_message(private_key):
             if len(msg_) != 0:
                 message = pickle.loads(msg_)
                 if(message.type == 'receive'):
+                    print(message.msg)
                     if message.sender != 'server':
                         decrypted_msg = decrypt_blob(message.msg,private_key)
                         show_message(message.sender,decrypted_msg)
@@ -246,9 +247,6 @@ def recv_message(private_key):
                             show_group_message(message.group_name,message.sender,message.msg)
                     change_in_thread()
 
-                        
-
-
 # Function to send the message to the given username
 def send_message(message):
         grp_or_ind = input("Enter i for individual message and g for group message: ")
@@ -260,7 +258,7 @@ def send_message(message):
                 # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
                 public_partner = rsa.PublicKey.load_pkcs1(send_key)
                 message = encrypt_blob(message,public_partner)
-                package = pickle.dumps(msg('receive', username, r_name, message))
+                package = pickle.dumps(msg('receive', username, r_name, message.decode()))
                 s.send(package)
             else:
                 print(f"{r_name} is offline")
@@ -272,7 +270,7 @@ def send_message(message):
                 # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
                 public_partner = rsa.PublicKey.load_pkcs1(get_pubkey(user_info_db_path, r_name[0]))
                 message_ = encrypt_blob(message,public_partner)
-                package = pickle.dumps(msg('group', username, r_name[0], message_,grp_name))
+                package = pickle.dumps(msg('group', username, r_name[0], message_.decode(),grp_name))
                 s.send(package)
 
 def send_image(address):
@@ -287,7 +285,7 @@ def send_image(address):
                 # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
                 public_partner = rsa.PublicKey.load_pkcs1(send_key)
                 message = encrypt_blob(image_str,public_partner)
-                package = pickle.dumps(msg('image', username, r_name, message))
+                package = pickle.dumps(msg('image', username, r_name, message.decode()))
                 s.send(package)
             else:
                 print(f"{r_name} is offline")
@@ -299,7 +297,7 @@ def send_image(address):
                 # public_partner = rsa.PublicKey.load_pkcs1(pub_keys[r_name])
                 public_partner = rsa.PublicKey.load_pkcs1(get_pubkey(user_info_db_path, r_name[0]))
                 message_ = encrypt_blob(image_str,public_partner)
-                package = pickle.dumps(msg('group_image', username, r_name[0], message_,grp_name))
+                package = pickle.dumps(msg('group_image', username, r_name[0], message_.decode(),grp_name))
                 s.send(package)
 
 def login():
@@ -328,8 +326,10 @@ def login():
             data = pickle.dumps(msg('register',username,'server',message))
             s.send(data)
             public_key,private_key = rsa.newkeys(1024)
-            mesg = public_key.save_pkcs1("PEM")+b" "+private_key.save_pkcs1("PEM")
-            s.send(mesg)
+            mesg1 = public_key.save_pkcs1("PEM")
+            mesg2 = private_key.save_pkcs1("PEM")
+            s.send(mesg1)
+            s.send(mesg2)
             conf = s.recv(buffer)
             message = pickle.loads(conf).msg
             if message == 'success':

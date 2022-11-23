@@ -35,7 +35,7 @@ def view_online(path):
     cur.execute("SELECT username from users where status= 'ONLINE'")
     user_info = cur.fetchall()
     for i in user_info:
-        print(i[0][0])
+        print(i[0])
     cur.close()
     connection.close()
 

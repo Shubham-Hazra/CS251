@@ -50,7 +50,7 @@ def create_table(path):
 
 def insert_to_db(cur,username,salt, password, status, port, pub_key, priv_key):
     try:
-        query = '''INSERT INTO users VALUES(?,?,?,?,?,?)'''
+        query = '''INSERT INTO users VALUES(?,?,?,?,?,?,?)'''
         cur.execute(query,(username,salt,password,status, port, pub_key, priv_key))
         print(f"Successfully created user {username}")
         return True
@@ -62,24 +62,36 @@ def check_username(username,path):
     #check if the username exist
     connection = sqlite3.connect(path)
     cur = connection.cursor()
-    cur.execute("SELECT username from users")
+    # cur.execute("SELECT username from users")
+    # a = cur.fetchall()
+    # for p in a:
+    #     if username == p[0]:
+    #         return True
+    # return False
+    cur.execute("SELECT username from users WHERE username=?", (username,))
     a = cur.fetchall()
-    if username in a:
+    if len(a) != 0:
         return True
     else:
         return False
+    # if username in a:
+    #     return True
+    # else:
+    #     return False
     
 def store_new_info(path, username, salt,password, status, port, pub_key, priv_key):
     #return True if success register
     connection = sqlite3.connect(path)
     cur = connection.cursor()
     if(check_username(username,path)):
+        # print("shouldn't be here")
         cur.close()
         connection.commit()
         connection.close()
         return False
     else:
         if insert_to_db(cur,username, salt,password,status, port, pub_key, priv_key):
+            # print("working properly")
             cur.close()
             connection.commit()
             connection.close()
@@ -174,6 +186,25 @@ def get_all_ports(path):
     connection = sqlite3.connect(path)
     cur = connection.cursor()
     out = cur.execute("SELECT username, port FROM USERS").fetchall()
+    cur.close()
+    connection.close()
+    return out
+
+def check_username_online(path, username):
+    connection = sqlite3.connect(path)
+    cur = connection.cursor()
+    out = cur.execute("SELECT * FROM USERS WHERE status = 'ONLINE' AND username=?", (username,)).fetchall()
+    cur.close()
+    connection.close()
+    if len(out) != 0:
+        return True
+    else:
+        return False
+
+def check_status(path, username):
+    connection = sqlite3.connect(path)
+    cur = connection.cursor()
+    out = cur.execute("SELECT status FROM USERS WHERE username=?", (username,)).fetchall()
     cur.close()
     connection.close()
     return out

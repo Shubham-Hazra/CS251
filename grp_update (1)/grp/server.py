@@ -54,12 +54,13 @@ while True:
     msgtype = message.type
     sender = message.sender
     receiver = message.receiver
-    length = message.length
     msg_ = message.msg
     grp = message.group_name
+    print(sender,msg_,msgtype)
     if msgtype == 'connect':
         # if addr not in AD.values():
-        if not isPortinTable(user_info_db_path, addr[1]):
+        # if not isPortinTable(user_info_db_path, addr[1]):
+        if check_status(user_info_db_path, sender) == "OFFLINE":
             # pub_keys[sender] = msg_
             # for name, address in AD.items():
             #     package = pickle.dumps(msg('key', sender, name,msg_))
@@ -72,19 +73,23 @@ while True:
             #     server_sock.sendto(package, addr)
             message = f"{sender} has entered the chat "
             # for name, address in AD.items():
+            change_status_online(sender, user_info_db_path)
             for name, port in get_all_ports(user_info_db_path):
                 if name != sender: 
-                    package = pickle.dumps(msg('receive', 'server', name,message))
+                    package = pickle. dumps(msg('receive', 'server', name,message))
                     server_sock.sendto(package, (LOCAL, port))
     elif msgtype == 'receive':
         # if(receiver in AD):
         if check_username(receiver, user_info_db_path):
+            print("checked")
             # server_sock.sendto(data, AD[receiver])
+            print(receiver,get_port(user_info_db_path, receiver))
             server_sock.sendto(data, (LOCAL, get_port(user_info_db_path, receiver)))
-        else:
-            message = f"{receiver} does not exist"
-            package = pickle.dumps(msg('recieve','server', sender,message))
-            server_sock.sendto(package, addr)
+            print("SENT")
+        # else:
+        #     message = f"{receiver} does not exist"
+        #     package = pickle.dumps(msg('recieve','server', sender,message))
+        #     server_sock.sendto(package, addr)
     elif msgtype == 'group':
         if msg_ == "create":
             if create_grp_table(user_info_db_path, grp, sender):
@@ -148,18 +153,21 @@ while True:
                 message = f"{receiver} does not exist"
                 package = pickle.dumps(msg('recieve','server', sender,message))
                 server_sock.sendto(package, addr)
+            ## MOST PROBABLY UNNECESSARY PIECE OF CODE
             #send_to()
         # else:
         #     message = f"{receiver} does not exist"
         #     package = pickle.dumps(msg('recieve','server', sender,message))
         #     server_sock.sendto(package, addr)
     elif msgtype == 'disconnect':
-        if(sender in AD):
-            AD.pop(sender)
-            pub_keys.pop(sender)
-            for name, addr in AD.items():
+        # if(sender in AD):
+        if check_username_online(user_info_db_path, sender):
+            # AD.pop(sender)
+            # pub_keys.pop(sender)
+            # for name, addr in AD.items():
+            for name, port in get_all_ports(user_info_db_path):
                 package = pickle.dumps(msg('disconnect', sender, name,'cancel'))
-                server_sock.sendto(package, addr)
+                server_sock.sendto(package, (LOCAL, port))
             change_status_offline(sender,user_info_db_path)
         else:
             message = f"{receiver} does not exist"
@@ -172,9 +180,10 @@ while True:
         salt = bcrypt.gensalt()
         # Hashing the password
         hashed = bcrypt.hashpw(password, salt)
-        keys = pickle.loads(server_sock.recv(BUFSIZE)).msg
-        pubkey, privkey = keys.split(" ")
-        state = store_new_info(user_info_db_path, username, salt,hashed,'ONLINE', addr[1], pubkey, privkey)
+        pubkey = server_sock.recv(BUFSIZE)
+        privkey = server_sock.recv(BUFSIZE)
+        print(username,addr[1])
+        state = store_new_info(user_info_db_path, username, salt,hashed,'OFFLINE', addr[1], pubkey, privkey)
         if(state):
             package = pickle.dumps(msg('register', 'server', 'unknown','success'))
             server_sock.sendto(package, addr)
@@ -187,14 +196,16 @@ while True:
         state = check_login_info(username, password, user_info_db_path)
         if(state):
             package = pickle.dumps(msg('login', 'server', 'unknown','success'))
-            change_status_online(sender, user_info_db_path)
+            # change_status_online(sender, user_info_db_path)
             server_sock.sendto(package, addr)
         else:
             package = pickle.dumps(msg('login', 'server', 'unknown', 'fail'))
             server_sock.sendto(package, addr)
     else:
-        if(receiver in AD):
-            server_sock.sendto(data, AD[receiver])
+        # if(receiver in AD):
+        if check_username(receiver, user_info_db_path):
+            # server_sock.sendto(data, AD[receiver])
+            server_sock.sendto(data, (LOCAL, get_port(user_info_db_path, receiver)))
         else:
             server_sock.sendto(message, addr)
 
